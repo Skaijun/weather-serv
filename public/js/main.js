@@ -19,17 +19,15 @@ class WeatherApp {
 
     let location = this.input.value;
 
-    fetch(`http://localhost:3000/weather?address=${location}`).then(
-      (response) => {
-        response.json().then((data) => {
-          if (data.err) {
-            vm.output.textContent = data.err;
-          } else {
-            vm.output.innerHTML = `<span>${data.location}</span><br><span>${data.temperature}</span>`;
-          }
-        });
-      }
-    );
+    fetch(`/weather?address=${location}`).then((response) => {
+      response.json().then((data) => {
+        if (data.err) {
+          vm.output.textContent = data.err;
+        } else {
+          vm.output.innerHTML = `<span>${data.location}</span><br><span>${data.temperature}</span>`;
+        }
+      });
+    });
 
     this.input.value = "";
   }

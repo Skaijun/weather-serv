@@ -10,6 +10,7 @@
   },
   "devDependencies": {},
   "scripts": {
+    "start": "node src/app.js",
     "nodes": "node src/app.js"
   },
   "author": "",
